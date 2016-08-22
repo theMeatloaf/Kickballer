@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="230" y="418"/>
         </scene>
-        <!--Kickball-->
+        <!--Game-->
         <scene sceneID="Gnk-lh-Dfk">
             <objects>
                 <viewController id="bSV-j1-Scs" customClass="MainViewController" customModule="Kickballer" customModuleProvider="target" sceneMemberID="viewController">
@@ -209,7 +209,7 @@
                             <constraint firstItem="SHY-pV-siZ" firstAttribute="leading" secondItem="gmo-qX-Ydp" secondAttribute="trailing" id="ynz-N0-CWe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Kickball" id="7Hf-Kv-6b9">
+                    <navigationItem key="navigationItem" title="Game" id="7Hf-Kv-6b9">
                         <barButtonItem key="rightBarButtonItem" title="Players" id="LcE-a0-xiO">
                             <connections>
                                 <segue destination="A7z-fO-dpj" kind="show" id="X6V-zg-zLg"/>
@@ -227,10 +227,10 @@
             </objects>
             <point key="canvasLocation" x="928" y="418"/>
         </scene>
-        <!--Player Picker View Controller-->
+        <!--Player List View Controller-->
         <scene sceneID="wuU-l9-5mW">
             <objects>
-                <viewController id="A7z-fO-dpj" customClass="PlayerPickerViewController" customModule="Kickballer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="A7z-fO-dpj" customClass="PlayerListViewController" customModule="Kickballer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vHQ-Xz-ffq"/>
                         <viewControllerLayoutGuide type="bottom" id="eAW-Ix-bxw"/>
@@ -269,7 +269,11 @@
                                 <action selector="changedGender:" destination="A7z-fO-dpj" eventType="valueChanged" id="48j-Sd-urW"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NGg-b0-tzY"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NGg-b0-tzY">
+                            <connections>
+                                <segue destination="X08-dm-RYp" kind="presentation" id="C62-hm-Quc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="genderPicker" destination="Bt6-rU-1fL" id="dzS-qg-PSZ"/>
@@ -280,10 +284,26 @@
             </objects>
             <point key="canvasLocation" x="1640" y="418"/>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="lv4-6E-QzQ">
+            <objects>
+                <navigationController id="X08-dm-RYp" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dWe-Ff-Szc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="D6m-PS-cDQ" kind="relationship" relationship="rootViewController" id="7xM-rI-Luq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zyh-A2-8jo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1640" y="1120"/>
+        </scene>
+        <!--Player Picker View Controller-->
         <scene sceneID="TaW-Bh-yPr">
             <objects>
-                <viewController id="D6m-PS-cDQ" sceneMemberID="viewController">
+                <viewController id="D6m-PS-cDQ" customClass="PlayerPickerViewController" customModule="Kickballer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1iv-bd-HTv"/>
                         <viewControllerLayoutGuide type="bottom" id="aGL-PN-aVm"/>
@@ -293,8 +313,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qu3-wK-ZKD">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="D6m-PS-cDQ" id="gDB-X0-N2K"/>
+                                    <outlet property="delegate" destination="D6m-PS-cDQ" id="98C-ai-ka2"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -302,13 +326,32 @@
                             <constraint firstAttribute="trailing" secondItem="Qu3-wK-ZKD" secondAttribute="trailing" id="2Ue-Vf-cyh"/>
                             <constraint firstItem="aGL-PN-aVm" firstAttribute="top" secondItem="Qu3-wK-ZKD" secondAttribute="bottom" id="Dn7-Hc-T9V"/>
                             <constraint firstItem="Qu3-wK-ZKD" firstAttribute="leading" secondItem="xbE-iq-7gy" secondAttribute="leading" id="ZgV-QF-9sV"/>
-                            <constraint firstItem="Qu3-wK-ZKD" firstAttribute="top" secondItem="1iv-bd-HTv" secondAttribute="bottom" id="ya7-ab-m4N"/>
+                            <constraint firstItem="Qu3-wK-ZKD" firstAttribute="top" secondItem="xbE-iq-7gy" secondAttribute="topMargin" id="gbf-OL-wxN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" prompt="Pick Players" id="zsu-od-GlZ">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="sxD-Wq-V1M"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="uW1-Jx-VLg">
+                            <rect key="frame" x="188" y="37" width="224" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Boys"/>
+                                <segment title="Girls"/>
+                            </segments>
+                            <connections>
+                                <action selector="swapGender:" destination="D6m-PS-cDQ" eventType="valueChanged" id="yne-Dm-pMK"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="txm-Zl-Udm"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="genderSelector" destination="uW1-Jx-VLg" id="QUX-Jg-AdS"/>
+                        <outlet property="tableView" destination="Qu3-wK-ZKD" id="sVe-SW-WTA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wcx-gn-yCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2304" y="418"/>
+            <point key="canvasLocation" x="2338" y="1120"/>
         </scene>
     </scenes>
 </document>

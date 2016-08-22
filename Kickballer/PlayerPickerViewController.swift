@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-class PlayerPickerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
-    @IBOutlet weak var genderPicker: UISegmentedControl!
+class PlayerPickerViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var genderSelector: UISegmentedControl!
     var thisGame : Game?
     
     override func viewDidLoad() {
@@ -20,28 +20,54 @@ class PlayerPickerViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if genderPicker.selectedSegmentIndex == 0 {
-            return thisGame!.boys.count
+        if genderSelector.selectedSegmentIndex == 0 {
+            return boysThatArentPlaying().count
         } else {
-            return thisGame!.girls.count
+            return girlsThatArentPlaying().count
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var thisPlayer : Player
-        if genderPicker.selectedSegmentIndex == 0 {
-            thisPlayer = thisGame!.boys[indexPath.row]
-        } else  {
-            thisPlayer = thisGame!.girls[indexPath.row]
+        
+        let thisPlayer : Player
+        if genderSelector.selectedSegmentIndex == 0 {
+            thisPlayer = boysThatArentPlaying()[indexPath.row]
+        }else {
+            thisPlayer = girlsThatArentPlaying()[indexPath.row]
         }
         
-        let cell = UITableViewCell(style: .Subtitle, reuseIdentifier: "cell")
+        let cell = UITableViewCell(style: .Default, reuseIdentifier: "celly")
         cell.textLabel?.text = thisPlayer.name
-        cell.detailTextLabel?.text = thisPlayer.gender.rawValue
+        
         return cell
     }
 
-    @IBAction func changedGender(sender: AnyObject) {
-        tableView.reloadData()
+    func boysThatArentPlaying() -> [Player] {
+        let allBoys = Player.allBoys
+        let boysInGame = thisGame!.boys
+        return allBoys.filter{ (boy:Player) -> Bool in
+            if !boysInGame.contains( {$0.name == boy.name} ) {
+               return true
+            } else {
+                return false
+            }
+        }
+    }
+    
+    func girlsThatArentPlaying() -> [Player] {
+        let allGirls = Player.allGirls
+        let girlsInGame = thisGame!.girls
+        return allGirls.filter{ (girl:Player) -> Bool in
+            if !girlsInGame.contains( {$0.name == girl.name} ) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+    
+    
+    @IBAction func swapGender(sender: AnyObject) {
+        
     }
 }

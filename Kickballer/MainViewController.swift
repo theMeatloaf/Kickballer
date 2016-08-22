@@ -72,7 +72,7 @@ class MainViewController: UIViewController {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let dest = segue.destinationViewController as? PlayerPickerViewController {
+        if let dest = segue.destinationViewController as? PlayerListViewController {
             dest.thisGame = self.thisGame
         }
     }
