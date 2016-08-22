@@ -68,6 +68,6 @@ class PlayerPickerViewController: UIViewController,UITableViewDataSource,UITable
     
     
     @IBAction func swapGender(sender: AnyObject) {
-        
+        self.tableView.reloadData()
     }
 }

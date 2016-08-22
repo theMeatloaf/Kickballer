@@ -44,4 +44,14 @@ class PlayerListViewController: UIViewController,UITableViewDelegate,UITableView
     @IBAction func changedGender(sender: AnyObject) {
         tableView.reloadData()
     }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let dest = segue.destinationViewController as? UINavigationController,
+            let rootDesk = dest.topViewController as? PlayerPickerViewController {
+            rootDesk.thisGame = self.thisGame
+        }
+        
+    }
+
 }
