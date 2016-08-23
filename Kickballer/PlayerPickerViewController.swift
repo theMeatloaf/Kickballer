@@ -14,6 +14,8 @@ class PlayerPickerViewController: UIViewController,UITableViewDataSource,UITable
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var genderSelector: UISegmentedControl!
     var thisGame : Game?
+    var selectedBoys : Set<NSIndexPath> = Set([])
+    var selectedGirls : Set<NSIndexPath> = Set([])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +45,7 @@ class PlayerPickerViewController: UIViewController,UITableViewDataSource,UITable
     }
 
     func boysThatArentPlaying() -> [Player] {
-        let allBoys = Player.allBoys
+        let allBoys = Player.getAllBoys()
         let boysInGame = thisGame!.boys
         return allBoys.filter{ (boy:Player) -> Bool in
             if !boysInGame.contains( {$0.name == boy.name} ) {
@@ -55,7 +57,7 @@ class PlayerPickerViewController: UIViewController,UITableViewDataSource,UITable
     }
     
     func girlsThatArentPlaying() -> [Player] {
-        let allGirls = Player.allGirls
+        let allGirls = Player.getAllGirls()
         let girlsInGame = thisGame!.girls
         return allGirls.filter{ (girl:Player) -> Bool in
             if !girlsInGame.contains( {$0.name == girl.name} ) {
@@ -66,8 +68,93 @@ class PlayerPickerViewController: UIViewController,UITableViewDataSource,UITable
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if genderSelector.selectedSegmentIndex == 0 {
+            //add boy
+            self.selectedBoys.insert(indexPath)
+        } else {
+            self.selectedGirls.insert(indexPath)
+        }
+    }
     
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        if genderSelector.selectedSegmentIndex == 0 {
+            //remove boy
+            self.selectedBoys.remove(indexPath)
+        } else {
+            self.selectedGirls.remove(indexPath)
+        }
+    }
+    
+    @IBAction func cancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func save(sender: AnyObject) {
+        //go through each selected array and add to game
+        let allBoys = self.boysThatArentPlaying()
+        for index in self.selectedBoys {
+            print("\(index.row)")
+            let boy = allBoys[index.row]
+            self.thisGame?.boys.insert(boy, atIndex: 0)
+        }
+        
+        let allGirls = self.girlsThatArentPlaying()
+        for index in self.selectedGirls {
+            let girl = allGirls[index.row]
+            self.thisGame?.girls.insert(girl, atIndex: 0)
+        }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func newPlayer(sender: AnyObject) {
+        //create the form for the new player
+        let newPlayer = Player()
+        
+        let alert = UIAlertController(title: "New Player", message: nil, preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Player Name"
+        }
+        
+        let saveMaleAction = UIAlertAction(title: "Male", style: .Default) { (action:UIAlertAction) in
+            let name = alert.textFields?.first?.text
+            newPlayer.name = name!
+            newPlayer.gender = .Male
+            Player.addBoy(newPlayer)
+            self.tableView.reloadData()
+        }
+        
+        let saveFemaleAction = UIAlertAction(title: "Female", style: .Default) { (action) in
+            let name = alert.textFields?.first?.text
+            newPlayer.name = name!
+            newPlayer.gender = .Female
+            Player.addGirl(newPlayer)
+            self.tableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Destructive) { (action) in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        alert.addAction(saveMaleAction)
+        alert.addAction(saveFemaleAction)
+        alert.addAction(cancelAction)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    //reselect
     @IBAction func swapGender(sender: AnyObject) {
         self.tableView.reloadData()
+        if genderSelector.selectedSegmentIndex == 0 {
+            for index in self.selectedBoys {
+                self.tableView.selectRowAtIndexPath(index, animated: false, scrollPosition: .None)
+            }
+        } else {
+            for index in self.selectedGirls {
+                self.tableView.selectRowAtIndexPath(index, animated: false, scrollPosition: .None)
+            }
+        }
     }
 }

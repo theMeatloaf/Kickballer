@@ -15,11 +15,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var outsCounter: UILabel!
     @IBOutlet weak var pointsCounter: UILabel!
     
+    var onBoys = true
     var thisGame = Game()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateUI()
         
         let ryan = Player()
         ryan.name = "Ryan"
@@ -30,9 +30,19 @@ class MainViewController: UIViewController {
         rion.gender = .Female
         thisGame.boys = [ryan]
         thisGame.girls = [rion]
+        
+        self.updateUI()
     }
     
     func updateUI() {
+        if onBoys {
+            whosUpLabel.text = thisGame.boys[thisGame.boyCounter].name
+            onDeckLabel.text = thisGame.girls[thisGame.girlCounter].name
+        } else {
+            whosUpLabel.text = thisGame.girls[thisGame.girlCounter].name
+            onDeckLabel.text = thisGame.boys[thisGame.boyCounter].name
+        }
+
         outsCounter.text = "\(thisGame.outs)"
         pointsCounter.text = "\(thisGame.point)"
     }
@@ -63,12 +73,28 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func pointsDown(sender: AnyObject) {
-        if thisGame.outs > 0 {
-            thisGame.outs -= 1
+        if thisGame.point > 0 {
+            thisGame.point -= 1
         }
         self.updateUI()
     }
     @IBAction func goNextKicker(sender: AnyObject) {
+        if onBoys {
+            thisGame.boyCounter += 1
+        } else {
+            thisGame.girlCounter += 1
+        }
+        onBoys = !onBoys
+        
+        if thisGame.boyCounter == thisGame.boys.count {
+            thisGame.boyCounter = 0
+        }
+        
+        if thisGame.girlCounter == thisGame.girls.count {
+            thisGame.girlCounter = 0
+        }
+        
+        self.updateUI()
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

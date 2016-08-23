@@ -32,11 +32,60 @@ class Player: NSObject {
         return girl
     }
     
-    static var allBoys : [Player] {
-        return [boy("Brad"),boy("Sean"),boy("Ryan")]
+    static func getAllBoys() -> [Player] {
+        if NSUserDefaults.standardUserDefaults().objectForKey("boysArray") != nil {
+            let savedArray = NSUserDefaults.standardUserDefaults().objectForKey("boysArray")! as! [String]
+            return savedArray.map({ (name:String) -> Player in
+                let player = Player()
+                player.name = name
+                player.gender = .Male
+                return player
+            })
+        } else {
+            //put some stuff in there...
+            self.addBoy(boy("Ryan"))
+            return getAllBoys()
+        }
     }
     
-    static var allGirls : [Player] {
-        return [girl("Stacy"),girl("Rion"),girl("Jenny")]
+    static func getAllGirls() -> [Player] {
+        if NSUserDefaults.standardUserDefaults().objectForKey("girlsArray") != nil {
+            let savedArray = NSUserDefaults.standardUserDefaults().objectForKey("girlsArray")! as! [String]
+            return savedArray.map({ (name:String) -> Player in
+                let player = Player()
+                player.name = name
+                player.gender = .Female
+                return player
+            })
+        } else {
+            self.addGirl(girl("Jenny"))
+            return getAllGirls()
+        }
+    }
+    
+    static func addBoy(player:Player) {
+        var savedArray : NSMutableArray
+        if NSUserDefaults.standardUserDefaults().objectForKey("boysArray") != nil {
+            let array = NSUserDefaults.standardUserDefaults().objectForKey("boysArray")! as! NSArray
+            savedArray = NSMutableArray(array: array)
+        } else {
+            savedArray = []
+        }
+        savedArray.insertObject(player.name, atIndex: 0)
+        NSUserDefaults.standardUserDefaults().setObject(savedArray, forKey: "boysArray")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    static func addGirl(player:Player) {
+        var savedArray : NSMutableArray
+        if NSUserDefaults.standardUserDefaults().objectForKey("girlsArray") != nil {
+            let array = NSUserDefaults.standardUserDefaults().objectForKey("girlsArray")! as! NSMutableArray
+            savedArray = NSMutableArray(array: array)
+        } else {
+            savedArray = []
+        }
+        savedArray.insertObject(player.name, atIndex: 0)
+        NSUserDefaults.standardUserDefaults().setObject(savedArray, forKey: "girlsArray")
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
 }

@@ -14,9 +14,13 @@ class PlayerListViewController: UIViewController,UITableViewDelegate,UITableView
     @IBOutlet weak var genderPicker: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     var thisGame : Game?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableView.allowsMultipleSelectionDuringEditing = true
+        
+        self.tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,6 +29,24 @@ class PlayerListViewController: UIViewController,UITableViewDelegate,UITableView
         } else {
             return thisGame!.girls.count
         }
+    }
+    
+    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
+        return "Bench"
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == .Delete {
+            if genderPicker.selectedSegmentIndex == 0 {
+                thisGame?.boys.removeAtIndex(indexPath.row)
+            } else {
+                thisGame?.girls.removeAtIndex(indexPath.row)
+            }
+            
+            self.tableView.reloadData()
+        }
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

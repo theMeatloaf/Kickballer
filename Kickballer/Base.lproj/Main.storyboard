@@ -177,7 +177,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.96464032443537184" blue="0.77827737650226825" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cfH-3o-cr1" firstAttribute="leading" secondItem="qbL-cs-0sD" secondAttribute="trailing" id="5mB-MG-CBR"/>
                             <constraint firstItem="jQs-ye-2Am" firstAttribute="centerY" secondItem="Td3-SV-nlT" secondAttribute="centerY" id="6A1-qR-1hK"/>
@@ -239,7 +239,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X4b-BS-jwh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X4b-BS-jwh">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -256,10 +256,10 @@
                             <constraint firstAttribute="trailing" secondItem="X4b-BS-jwh" secondAttribute="trailing" id="wmH-hB-HlA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="g3b-ep-lJV">
+                    <navigationItem key="navigationItem" prompt="Kicking Order" id="g3b-ep-lJV">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Bt6-rU-1fL">
-                            <rect key="frame" x="212" y="7" width="177" height="30"/>
+                            <rect key="frame" x="212" y="37" width="177" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Boys"/>
@@ -312,7 +312,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qu3-wK-ZKD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qu3-wK-ZKD">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -320,17 +320,37 @@
                                     <outlet property="delegate" destination="D6m-PS-cDQ" id="98C-ai-ka2"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gV-Po-Idf">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.60392156860000001" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HbY-DP-qnZ"/>
+                                </constraints>
+                                <state key="normal" title="NEW PLAYER">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="newPlayer:" destination="D6m-PS-cDQ" eventType="touchUpInside" id="I2X-8K-H1x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qu3-wK-ZKD" secondAttribute="trailing" id="2Ue-Vf-cyh"/>
+                            <constraint firstItem="7gV-Po-Idf" firstAttribute="leading" secondItem="xbE-iq-7gy" secondAttribute="leading" id="BiK-T5-SQt"/>
                             <constraint firstItem="aGL-PN-aVm" firstAttribute="top" secondItem="Qu3-wK-ZKD" secondAttribute="bottom" id="Dn7-Hc-T9V"/>
+                            <constraint firstItem="aGL-PN-aVm" firstAttribute="top" secondItem="7gV-Po-Idf" secondAttribute="bottom" id="R8G-lR-l5d"/>
                             <constraint firstItem="Qu3-wK-ZKD" firstAttribute="leading" secondItem="xbE-iq-7gy" secondAttribute="leading" id="ZgV-QF-9sV"/>
                             <constraint firstItem="Qu3-wK-ZKD" firstAttribute="top" secondItem="xbE-iq-7gy" secondAttribute="topMargin" id="gbf-OL-wxN"/>
+                            <constraint firstAttribute="trailing" secondItem="7gV-Po-Idf" secondAttribute="trailing" id="wMM-Dj-GJW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" prompt="Pick Players" id="zsu-od-GlZ">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="sxD-Wq-V1M"/>
+                    <navigationItem key="navigationItem" prompt="Add Players to Game" id="zsu-od-GlZ">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="sxD-Wq-V1M">
+                            <connections>
+                                <action selector="cancel:" destination="D6m-PS-cDQ" id="w4R-Ou-ljC"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="uW1-Jx-VLg">
                             <rect key="frame" x="188" y="37" width="224" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -342,7 +362,11 @@
                                 <action selector="swapGender:" destination="D6m-PS-cDQ" eventType="valueChanged" id="yne-Dm-pMK"/>
                             </connections>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="txm-Zl-Udm"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="txm-Zl-Udm">
+                            <connections>
+                                <action selector="save:" destination="D6m-PS-cDQ" id="umk-Sg-upg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="genderSelector" destination="uW1-Jx-VLg" id="QUX-Jg-AdS"/>
