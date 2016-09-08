@@ -19,6 +19,7 @@ class PlayerPickerViewController: UIViewController,UITableViewDataSource,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.allowsMultipleSelectionDuringEditing = true
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -157,4 +158,24 @@ class PlayerPickerViewController: UIViewController,UITableViewDataSource,UITable
             }
         }
     }
+    
+    //edit
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == .Delete {
+            let thisPlayer : Player
+            if genderSelector.selectedSegmentIndex == 0 {
+                thisPlayer = boysThatArentPlaying()[indexPath.row]
+                Player.deleteBoy(thisPlayer)
+            }else {
+                thisPlayer = girlsThatArentPlaying()[indexPath.row]
+                Player.deleteGirl(thisPlayer)
+            }
+            
+            
+            self.tableView.reloadData()
+        }
+        
+    }
+    
 }

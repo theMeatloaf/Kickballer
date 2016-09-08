@@ -96,6 +96,26 @@ class MainViewController: UIViewController {
         
         self.updateUI()
     }
+    
+    @IBAction func goLastKicker(sender: AnyObject) {
+        onBoys = !onBoys
+
+        if onBoys {
+            thisGame.boyCounter -= 1
+        } else {
+            thisGame.girlCounter -= 1
+        }
+        
+        if thisGame.boyCounter == -1 {
+            thisGame.boyCounter = thisGame.boys.count - 1
+        }
+        
+        if thisGame.girlCounter == -1 {
+            thisGame.girlCounter = thisGame.girls.count - 1
+        }
+        
+        self.updateUI()
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let dest = segue.destinationViewController as? PlayerListViewController {

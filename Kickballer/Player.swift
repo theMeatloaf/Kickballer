@@ -88,4 +88,30 @@ class Player: NSObject {
         NSUserDefaults.standardUserDefaults().setObject(savedArray, forKey: "girlsArray")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
+    
+    static func deleteGirl(player:Player) {
+        var savedArray : NSMutableArray
+        if NSUserDefaults.standardUserDefaults().objectForKey("girlsArray") != nil {
+            let array = NSUserDefaults.standardUserDefaults().objectForKey("girlsArray")! as! NSMutableArray
+            savedArray = NSMutableArray(array: array)
+        } else {
+            savedArray = []
+        }
+        savedArray.removeObject(player.name)
+        NSUserDefaults.standardUserDefaults().setObject(savedArray, forKey: "girlsArray")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    static func deleteBoy(player:Player) {
+        var savedArray : NSMutableArray
+        if NSUserDefaults.standardUserDefaults().objectForKey("boysArray") != nil {
+            let array = NSUserDefaults.standardUserDefaults().objectForKey("boysArray")! as! NSArray
+            savedArray = NSMutableArray(array: array)
+        } else {
+            savedArray = []
+        }
+        savedArray.removeObject(player.name)
+        NSUserDefaults.standardUserDefaults().setObject(savedArray, forKey: "boysArray")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
 }
