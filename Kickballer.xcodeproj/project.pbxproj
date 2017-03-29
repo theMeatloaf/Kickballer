@@ -125,6 +125,7 @@
 					CE1DD6BF1D6BA6AB0062A4C1 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = V9265L9BH5;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -289,6 +290,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.RJW.Kickballer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -303,6 +305,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.RJW.Kickballer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jh9-Fk-gRO">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jh9-Fk-gRO">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -31,11 +35,11 @@
                         <viewControllerLayoutGuide type="bottom" id="KIL-HB-KAW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="er5-Hn-CoU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="UP:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Td3-SV-nlT">
-                                <rect key="frame" x="93" y="164" width="46" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UP:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Td3-SV-nlT">
+                                <rect key="frame" x="119.5" y="164" width="46" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="QT9-QC-N4i"/>
                                     <constraint firstAttribute="width" constant="46" id="T58-6T-5vK"/>
@@ -44,8 +48,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="On Deck:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GME-5n-T7J">
-                                <rect key="frame" x="58" y="199" width="81" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On Deck:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GME-5n-T7J">
+                                <rect key="frame" x="84.5" y="199" width="81" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="QUn-Dc-Izb"/>
                                     <constraint firstAttribute="width" constant="81" id="yRB-0y-Huo"/>
@@ -54,18 +58,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ryan Wedig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQs-ye-2Am">
-                                <rect key="frame" x="147" y="164" width="141" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ryan Wedig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQs-ye-2Am">
+                                <rect key="frame" x="173.5" y="164" width="151.5" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="EHJ-ec-yoR"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="141" id="ymE-k2-ex4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="29"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ryan Wedig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIJ-3U-eml">
-                                <rect key="frame" x="147" y="199" width="100" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ryan Wedig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIJ-3U-eml">
+                                <rect key="frame" x="173.5" y="199" width="100" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="4Rh-Nf-KPQ"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="l0q-eW-NQN"/>
@@ -75,22 +79,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6B-mT-tVU">
-                                <rect key="frame" x="161" y="503" width="159" height="65"/>
-                                <color key="backgroundColor" red="0.54403139519206545" green="0.81923076923076921" blue="0.3139078007739457" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="216" y="602" width="159" height="65"/>
+                                <color key="backgroundColor" red="0.54403139519206545" green="0.81923076923076921" blue="0.3139078007739457" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="EY1-Xc-iQX"/>
                                     <constraint firstAttribute="width" constant="159" id="sCP-Ap-IY9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                 <state key="normal" title="NEXT KICKER">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="goNextKicker:" destination="bSV-j1-Scs" eventType="touchUpInside" id="W8h-hN-CTm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Points:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdc-Lc-AYh">
-                                <rect key="frame" x="112" y="454" width="87" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdc-Lc-AYh">
+                                <rect key="frame" x="138.5" y="553" width="87" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="87" id="5Sn-iU-NMG"/>
                                     <constraint firstAttribute="height" constant="33" id="zKy-8S-4hV"/>
@@ -99,8 +103,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmo-qX-Ydp">
-                                <rect key="frame" x="206" y="454" width="31" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmo-qX-Ydp">
+                                <rect key="frame" x="232.5" y="553" width="31" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="31" id="gDo-33-WBO"/>
                                     <constraint firstAttribute="height" constant="32" id="n7p-gm-dhd"/>
@@ -109,8 +113,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evq-1T-smR">
-                                <rect key="frame" x="214" y="401" width="16" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evq-1T-smR">
+                                <rect key="frame" x="240.5" y="500" width="16" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="pPA-fP-W3m"/>
                                     <constraint firstAttribute="width" constant="16" id="zXE-am-Q7b"/>
@@ -119,8 +123,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGx-Bl-8bq">
-                                <rect key="frame" x="237" y="387" width="33" height="59"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UGx-Bl-8bq">
+                                <rect key="frame" x="263.5" y="486" width="33" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="Sh2-6f-bf2"/>
                                     <constraint firstAttribute="height" constant="59" id="kbz-M3-0bO"/>
@@ -131,8 +135,8 @@
                                     <action selector="outsUp:" destination="bSV-j1-Scs" eventType="touchUpInside" id="IXr-pG-xGq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbL-cs-0sD">
-                                <rect key="frame" x="79" y="387" width="33" height="59"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbL-cs-0sD">
+                                <rect key="frame" x="105.5" y="486" width="33" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="Evt-On-Z5L"/>
                                     <constraint firstAttribute="height" constant="59" id="FOd-0Q-6ue"/>
@@ -143,8 +147,8 @@
                                     <action selector="outsDown:" destination="bSV-j1-Scs" eventType="touchUpInside" id="9aq-hX-Tj3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHY-pV-siZ">
-                                <rect key="frame" x="237" y="439" width="33" height="59"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHY-pV-siZ">
+                                <rect key="frame" x="263.5" y="538" width="33" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="ZiC-Ra-PAd"/>
                                     <constraint firstAttribute="width" constant="33" id="ruE-9v-8bL"/>
@@ -155,8 +159,8 @@
                                     <action selector="pointsUp:" destination="bSV-j1-Scs" eventType="touchUpInside" id="eMz-jv-rUu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9e0-8M-RS6">
-                                <rect key="frame" x="79" y="440" width="33" height="59"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9e0-8M-RS6">
+                                <rect key="frame" x="105.5" y="539" width="33" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="PGJ-Ks-c5S"/>
                                     <constraint firstAttribute="height" constant="59" id="cqT-ho-P4z"/>
@@ -167,8 +171,8 @@
                                     <action selector="pointsDown:" destination="bSV-j1-Scs" eventType="touchUpInside" id="POc-Pq-qy0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Outs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfH-3o-cr1">
-                                <rect key="frame" x="130" y="400" width="67" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outs:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfH-3o-cr1">
+                                <rect key="frame" x="156.5" y="499" width="67" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="67" id="AIz-VQ-77I"/>
                                     <constraint firstAttribute="height" constant="33" id="FDZ-U1-BmT"/>
@@ -178,22 +182,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ5-1c-wkC">
-                                <rect key="frame" x="0.0" y="503" width="159" height="65"/>
-                                <color key="backgroundColor" red="0.81923076920000004" green="0.38750000925874944" blue="0.34696991276753231" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="602" width="159" height="65"/>
+                                <color key="backgroundColor" red="0.81923076920000004" green="0.38750000925874944" blue="0.34696991276753231" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="2e9-Ct-zeL"/>
                                     <constraint firstAttribute="width" constant="159" id="7bw-kA-SZZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                 <state key="normal" title="LAST KICKER">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="goLastKicker:" destination="bSV-j1-Scs" eventType="touchUpInside" id="heW-qb-P6M"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.96464032443537184" blue="0.77827737650226825" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.96464032443537184" blue="0.77827737650226825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gmo-qX-Ydp" firstAttribute="top" secondItem="UGx-Bl-8bq" secondAttribute="bottom" constant="8" id="18P-v5-HZn"/>
                             <constraint firstItem="cfH-3o-cr1" firstAttribute="leading" secondItem="qbL-cs-0sD" secondAttribute="trailing" constant="18" id="5mB-MG-CBR"/>
@@ -232,7 +236,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="onDeckLabel" destination="DIJ-3U-eml" id="t0k-Yu-jb6"/>
                         <outlet property="outsCounter" destination="Evq-1T-smR" id="kRg-L7-A1M"/>
@@ -253,19 +256,19 @@
                         <viewControllerLayoutGuide type="bottom" id="eAW-Ix-bxw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8Ec-Ng-rHh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X4b-BS-jwh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="A7z-fO-dpj" id="ZMc-v3-4Ea"/>
                                     <outlet property="delegate" destination="A7z-fO-dpj" id="D5w-bA-dys"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eAW-Ix-bxw" firstAttribute="top" secondItem="X4b-BS-jwh" secondAttribute="bottom" id="98Z-Kh-68C"/>
                             <constraint firstItem="X4b-BS-jwh" firstAttribute="leading" secondItem="8Ec-Ng-rHh" secondAttribute="leading" id="YF2-4L-Two"/>
@@ -276,7 +279,7 @@
                     <navigationItem key="navigationItem" prompt="Kicking Order" id="g3b-ep-lJV">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Bt6-rU-1fL">
-                            <rect key="frame" x="72" y="37" width="177" height="30"/>
+                            <rect key="frame" x="99" y="37" width="177" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Boys"/>
@@ -326,32 +329,32 @@
                         <viewControllerLayoutGuide type="bottom" id="aGL-PN-aVm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xbE-iq-7gy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qu3-wK-ZKD">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="D6m-PS-cDQ" id="gDB-X0-N2K"/>
                                     <outlet property="delegate" destination="D6m-PS-cDQ" id="98C-ai-ka2"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gV-Po-Idf">
-                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
-                                <color key="backgroundColor" red="0.0039215686269999999" green="0.60392156860000001" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.0039215686269999999" green="0.60392156860000001" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="HbY-DP-qnZ"/>
                                 </constraints>
                                 <state key="normal" title="NEW PLAYER">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="newPlayer:" destination="D6m-PS-cDQ" eventType="touchUpInside" id="I2X-8K-H1x"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Qu3-wK-ZKD" secondAttribute="trailing" id="2Ue-Vf-cyh"/>
                             <constraint firstItem="7gV-Po-Idf" firstAttribute="leading" secondItem="xbE-iq-7gy" secondAttribute="leading" id="BiK-T5-SQt"/>
@@ -369,7 +372,7 @@
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="uW1-Jx-VLg">
-                            <rect key="frame" x="67" y="37" width="200" height="30"/>
+                            <rect key="frame" x="87.5" y="37" width="200" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Boys"/>

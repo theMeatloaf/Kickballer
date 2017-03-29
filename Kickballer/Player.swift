@@ -18,14 +18,14 @@ class Player: NSObject {
     var name : String = ""
     var gender : Gender = .Male
     
-    static func boy(name:String) -> Player {
+    static func boy(_ name:String) -> Player {
         let boy = Player()
         boy.gender = .Male
         boy.name = name
         return boy
     }
     
-    static func girl(name:String) -> Player {
+    static func girl(_ name:String) -> Player {
         let girl = Player()
         girl.gender = .Female
         girl.name = name
@@ -33,8 +33,7 @@ class Player: NSObject {
     }
     
     static func getAllBoys() -> [Player] {
-        if NSUserDefaults.standardUserDefaults().objectForKey("boysArray") != nil {
-            let savedArray = NSUserDefaults.standardUserDefaults().objectForKey("boysArray")! as! [String]
+        if let savedArray = UserDefaults.standard.object(forKey: "boysArray") as? [String] {
             return savedArray.map({ (name:String) -> Player in
                 let player = Player()
                 player.name = name
@@ -49,8 +48,7 @@ class Player: NSObject {
     }
     
     static func getAllGirls() -> [Player] {
-        if NSUserDefaults.standardUserDefaults().objectForKey("girlsArray") != nil {
-            let savedArray = NSUserDefaults.standardUserDefaults().objectForKey("girlsArray")! as! [String]
+        if let savedArray = UserDefaults.standard.object(forKey: "girlsArray") as? [String] {
             return savedArray.map({ (name:String) -> Player in
                 let player = Player()
                 player.name = name
@@ -63,55 +61,51 @@ class Player: NSObject {
         }
     }
     
-    static func addBoy(player:Player) {
+    static func addBoy(_ player:Player) {
         var savedArray : NSMutableArray
-        if NSUserDefaults.standardUserDefaults().objectForKey("boysArray") != nil {
-            let array = NSUserDefaults.standardUserDefaults().objectForKey("boysArray")! as! NSArray
+        if let array = UserDefaults.standard.object(forKey: "boysArray") as? NSArray {
             savedArray = NSMutableArray(array: array)
         } else {
             savedArray = []
         }
-        savedArray.insertObject(player.name, atIndex: 0)
-        NSUserDefaults.standardUserDefaults().setObject(savedArray, forKey: "boysArray")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        savedArray.add(player.name)
+        UserDefaults.standard.set(savedArray, forKey: "boysArray")
+        UserDefaults.standard.synchronize()
     }
     
-    static func addGirl(player:Player) {
+    static func addGirl(_ player:Player) {
         var savedArray : NSMutableArray
-        if NSUserDefaults.standardUserDefaults().objectForKey("girlsArray") != nil {
-            let array = NSUserDefaults.standardUserDefaults().objectForKey("girlsArray")! as! NSMutableArray
+        if let array = UserDefaults.standard.object(forKey: "girlsArray") as? NSArray {
             savedArray = NSMutableArray(array: array)
         } else {
             savedArray = []
         }
-        savedArray.insertObject(player.name, atIndex: 0)
-        NSUserDefaults.standardUserDefaults().setObject(savedArray, forKey: "girlsArray")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        savedArray.add(player.name)
+        UserDefaults.standard.set(savedArray, forKey: "girlsArray")
+        UserDefaults.standard.synchronize()
     }
     
-    static func deleteGirl(player:Player) {
+    static func deleteGirl(_ player:Player) {
         var savedArray : NSMutableArray
-        if NSUserDefaults.standardUserDefaults().objectForKey("girlsArray") != nil {
-            let array = NSUserDefaults.standardUserDefaults().objectForKey("girlsArray")! as! NSMutableArray
+        if let array = UserDefaults.standard.object(forKey: "girlsArray") as? NSArray {
             savedArray = NSMutableArray(array: array)
         } else {
             savedArray = []
         }
-        savedArray.removeObject(player.name)
-        NSUserDefaults.standardUserDefaults().setObject(savedArray, forKey: "girlsArray")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        savedArray.remove(player.name)
+        UserDefaults.standard.set(savedArray, forKey: "girlsArray")
+        UserDefaults.standard.synchronize()
     }
     
-    static func deleteBoy(player:Player) {
+    static func deleteBoy(_ player:Player) {
         var savedArray : NSMutableArray
-        if NSUserDefaults.standardUserDefaults().objectForKey("boysArray") != nil {
-            let array = NSUserDefaults.standardUserDefaults().objectForKey("boysArray")! as! NSArray
+        if let array = UserDefaults.standard.object(forKey: "boysArray") as? NSArray {
             savedArray = NSMutableArray(array: array)
         } else {
             savedArray = []
         }
-        savedArray.removeObject(player.name)
-        NSUserDefaults.standardUserDefaults().setObject(savedArray, forKey: "boysArray")
-        NSUserDefaults.standardUserDefaults().synchronize()
+        savedArray.remove(player.name)
+        UserDefaults.standard.set(savedArray, forKey: "boysArray")
+        UserDefaults.standard.synchronize()
     }
 }

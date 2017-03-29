@@ -20,27 +20,25 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let ryan = Player()
-        ryan.name = "Ryan"
-        ryan.gender = .Male
-        
-        let rion = Player()
-        rion.name = "Rion"
-        rion.gender = .Female
-        thisGame.boys = [ryan]
-        thisGame.girls = [rion]
-        
+        thisGame.boys = []
+        thisGame.girls = []
+        self.updateUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.updateUI()
     }
     
     func updateUI() {
+        self.checkForOverflow()
+        
         if onBoys {
-            whosUpLabel.text = thisGame.boys[thisGame.boyCounter].name
-            onDeckLabel.text = thisGame.girls[thisGame.girlCounter].name
+            whosUpLabel.text = thisGame.boys.isEmpty ? "N/A" : thisGame.boys[thisGame.boyCounter].name
+            onDeckLabel.text = thisGame.girls.isEmpty ? "N/A" : thisGame.girls[thisGame.girlCounter].name
         } else {
-            whosUpLabel.text = thisGame.girls[thisGame.girlCounter].name
-            onDeckLabel.text = thisGame.boys[thisGame.boyCounter].name
+             whosUpLabel.text = thisGame.girls.isEmpty ? "N/A" : thisGame.girls[thisGame.girlCounter].name
+             onDeckLabel.text = thisGame.boys.isEmpty ? "N/A" : thisGame.boys[thisGame.boyCounter].name
         }
 
         outsCounter.text = "\(thisGame.outs)"
@@ -52,7 +50,7 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func outsUp(sender: AnyObject) {
+    @IBAction func outsUp(_ sender: AnyObject) {
         thisGame.outs += 1
         if thisGame.outs == 4 {
             thisGame.outs = 0
@@ -60,25 +58,25 @@ class MainViewController: UIViewController {
         self.updateUI()
     }
 
-    @IBAction func outsDown(sender: AnyObject) {
+    @IBAction func outsDown(_ sender: AnyObject) {
         if thisGame.outs > 0 {
            thisGame.outs -= 1
         }
         self.updateUI()
     }
     
-    @IBAction func pointsUp(sender: AnyObject) {
+    @IBAction func pointsUp(_ sender: AnyObject) {
         thisGame.point += 1
         self.updateUI()
     }
 
-    @IBAction func pointsDown(sender: AnyObject) {
+    @IBAction func pointsDown(_ sender: AnyObject) {
         if thisGame.point > 0 {
             thisGame.point -= 1
         }
         self.updateUI()
     }
-    @IBAction func goNextKicker(sender: AnyObject) {
+    @IBAction func goNextKicker(_ sender: AnyObject) {
         if onBoys {
             thisGame.boyCounter += 1
         } else {
@@ -86,18 +84,22 @@ class MainViewController: UIViewController {
         }
         onBoys = !onBoys
         
-        if thisGame.boyCounter == thisGame.boys.count {
-            thisGame.boyCounter = 0
-        }
-        
-        if thisGame.girlCounter == thisGame.girls.count {
-            thisGame.girlCounter = 0
-        }
+        self.checkForOverflow()
         
         self.updateUI()
     }
     
-    @IBAction func goLastKicker(sender: AnyObject) {
+    func checkForOverflow() {
+        if thisGame.boyCounter >= thisGame.boys.count {
+            thisGame.boyCounter = 0
+        }
+        
+        if thisGame.girlCounter >= thisGame.girls.count {
+            thisGame.girlCounter = 0
+        }
+    }
+    
+    @IBAction func goLastKicker(_ sender: AnyObject) {
         onBoys = !onBoys
 
         if onBoys {
@@ -117,8 +119,8 @@ class MainViewController: UIViewController {
         self.updateUI()
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let dest = segue.destinationViewController as? PlayerListViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? PlayerListViewController {
             dest.thisGame = self.thisGame
         }
     }
